@@ -1,0 +1,406 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Helvetica;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    height: 80px;
+    transition: background-color .5s;
+    z-index: 2;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: Helvetica;
+    font-size: 1.25rem;
+    letter-spacing: .2rem;
+    transition: color .5s;
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.clear-nav {
+    background: transparent;
+}
+
+.blue-nav {
+    background: azure;
+}
+
+.clear-nav img {
+    border: 2px solid yellow;
+}
+
+.blue-nav img {
+    border: 2px solid rgb(224, 139, 139);
+}
+
+.clear-nav a {
+    color: azure;
+}
+
+.blue-nav a {
+    color: rgb(46, 16, 16);
+}
+
+#home {
+    position: relative;
+}
+
+#home .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(142, 62, 62, 0.25);
+    z-index: 0;
+}
+
+#home video {
+    width: 100%;
+    z-index: -1;
+}
+
+#home .header-content {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    background: rgb(34, 34, 45, .5);
+    border-radius: 10px;
+    color: azure;
+    width: 700px;
+    padding: 10px;
+    z-index: 1;
+}
+
+#home .pause-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    background-image: url("assets/pause.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    bottom: 20px;
+    left: 20px;
+}
+
+.jump-to-services {
+    text-transform: uppercase;
+    padding: 10px;
+    letter-spacing: .4rem;
+    background: transparent;
+    color: azure;
+    border: 2px solid azure;
+    transition: background-color .5s, color .5s;
+}
+
+.jump-to-services:hover {
+    background: azure;
+    color: black;
+}
+
+.title {
+    font-size: 5rem;
+    letter-spacing: .25rem;
+}
+
+.intro {
+    margin: 10px 0 20px 0;
+    font-size: 1.25rem;
+}
+
+.about-intro {
+    width: 600px;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+#about-us {
+    background: rgb(244, 232, 248);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 200px;
+}
+
+#about-us h2 {
+    font-size: 3rem;
+    color: rgb(70, 63, 63);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.wrapper {
+    perspective: 1000px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    transition : transform .25s;
+    transform-style: preserve-3d;
+}
+
+.front-face, .back-face {
+    position: absolute;
+    backface-visibility: hidden;
+    width : 100%;
+    height: 100%;
+    transition: opacity 1s;
+}
+
+.back-face {
+    transform : rotateY(180deg);
+}
+
+.unflipped {
+    animation : .5s ease 1 forwards unflipped;
+}
+
+.flipped {
+    animation : .5s ease 1 forwards flipped;
+}
+
+@keyframes flipped {
+    to {
+        transform : rotateY(540deg);
+    }
+}
+
+@keyframes unflipped {
+    to {
+        transform : rotateY(-360deg);
+    }
+}
+
+.card img {
+    width: 200px;
+    border: 3px solid rgb(73, 66, 66);
+    border-radius: 50%;
+}
+
+.front-face h3 {
+    font-size: 1.5rem;
+    color: rgb(33, 30, 30);
+    letter-spacing: .1rem;
+}
+
+.front-face button {
+    padding: 5px;
+    font-size: 1.25rem;
+    border: none;
+    color: azure;
+    margin: 10px;
+    background: transparent;
+    border: 2px solid azure;
+    transition: background-color .5s, color .5s;
+}
+
+.front-face button:hover {
+    background: azure;
+    color: rgb(43, 39, 39);
+}
+
+.back-face {
+    position: relative;
+    height: 275px;
+}
+
+.back-face button {
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    background-image: url("assets/return.png");
+    background-size: cover;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+}
+
+.back-face button:hover {
+    background-color: rgba(128, 96, 96, 0.5);
+}
+
+.back-face p {
+    line-height: 1.5rem;
+}
+
+#chino-card {
+    background: rgb(88, 179, 215);
+}
+
+#chiya-card {
+    background: rgb(42, 204, 42);
+}
+
+#cockoa-card {
+    background: rgb(213, 148, 159);
+}
+
+#sxarp-card {
+    background: rgb(217, 217, 86);
+}
+
+#services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    background: rgb(246, 233, 233);
+    padding: 2rem;
+    padding-bottom: 200px;
+    gap: 50px;
+}
+
+#services h2 {
+    font-size: 3rem;
+    color: rgb(70, 63, 63);
+}
+
+#services ul {
+    font-size: 1.25rem;
+    width: 80%;
+    line-height: 2.5rem;
+} 
+
+#services li {
+    width: 70%;
+}
+
+footer {
+    padding: 25px;
+    font-size: 1.5rem;
+    color: azure;
+    background: purple;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    #home .title {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        padding: 10px;
+        height: 50px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+    
+    nav a {
+        font-size: 1rem;
+        letter-spacing: .1rem;
+    }
+    
+    nav img {
+        width: 30px;
+        height: 30px;
+        padding: 2px;
+    }
+
+    #home {
+        padding: 50px 20px 20px 20px;
+        background: url("assets/noa.png");
+        background-size: cover;
+        background-position: center;
+    }
+
+    #home .header-content {
+        width: 300px;
+        position: static;
+    }
+
+    #home video, #home .cover, #home .pause-button {
+        display: none;
+    }
+
+    #home .title {
+        font-size: 3rem;
+    }
+
+    #home .intro {
+        font-size: 1rem;
+    }
+
+    .about-intro {
+        width: 300px;
+    }
+
+    #about-us {
+        padding-bottom: 50px;
+    }
+
+    #services {
+        padding-bottom: 10px;
+    }
+
+    #services ul {
+        font-size: 1.25rem;
+        width: 90%;
+        line-height: 2.5rem;
+    } 
+    
+    #services li {
+        width: 100%;
+        margin: 25px;
+    }
+
+    #services h2 {
+        font-size: 2.5rem;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
